@@ -98,4 +98,5 @@ def addLikedBook(request):
         likedBook = LikedBook.objects.create(user=user,book_detail=bookDetail)
         print("likedBook")
         print(likedBook)
-        return JsonResponse(data={"delete success":"ok"}, safe=False)
+        return JsonResponse(data={"add success":"ok"}, safe=False)
+# liked list handled
