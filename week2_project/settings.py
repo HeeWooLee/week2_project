@@ -37,13 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # added
+    'django.contrib.sites',
+    'rest_framework',
+    # authorization
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_framework.authtoken',
+    # User app
     'book_app',
     'user_app',
     'subject_app',
-    'rest_framework',
-    # 'week2_project.MUser',
-    # 'week2_project.LikedBook'
-    
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +136,30 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# added for 'django.contrib.sites',
+SITE_ID = 1
+# added for csrf token bypass
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    # 로그인 후 token으로 활동 인증
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+
+AUTH_USER_MODEL = 'accounts.User'
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_FORMS = {'signup': 'accounts.forms.UserCreationForm'}
+
+# 자동으로 token을 response로 보내줌
+REST_AUTH_SERIALIZERS = {
+    #'USER_DETAILS_SERIALIZER' : 'accounts.serializer.UserSerializer',
+    'TOKEN_SERIALIZER': 'accounts.serializer.TokenSerializer',
+}

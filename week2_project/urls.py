@@ -31,6 +31,10 @@ router.register(r'user', user_views.UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('subject/', include('subject_app.urls')),
     path('book/', include('book_app.urls')),
     path('user/', include('user_app.urls')),
     path('', include(router.urls)),
