@@ -1,0 +1,605 @@
+[{
+    "model": "subject_app.Subject",
+   "pk": 1, 
+   "fields": { 
+    "subject": "소프트웨어의이해" }},{
+    "model": "subject_app.Subject",
+   "pk": 2, 
+   "fields": { 
+    "subject": "컴퓨터수학" }},{
+    "model": "subject_app.Subject",
+   "pk": 3, 
+   "fields": { 
+    "subject": "프로그래밍개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 4, 
+   "fields": { 
+    "subject": "컴퓨터과학의이해" }},{
+    "model": "subject_app.Subject",
+   "pk": 5, 
+   "fields": { 
+    "subject": "자료구조" }},{
+    "model": "subject_app.Subject",
+   "pk": 6, 
+   "fields": { 
+    "subject": "데이터사이언스개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 7, 
+   "fields": { 
+    "subject": "윈도우프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 8, 
+   "fields": { 
+    "subject": "디지털논리회로" }},{
+    "model": "subject_app.Subject",
+   "pk": 9, 
+   "fields": { 
+    "subject": "리눅스시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 10, 
+   "fields": { 
+    "subject": "자바프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 11, 
+   "fields": { 
+    "subject": "컴퓨터그래픽스" }},{
+    "model": "subject_app.Subject",
+   "pk": 12, 
+   "fields": { 
+    "subject": "운영체제" }},{
+    "model": "subject_app.Subject",
+   "pk": 13, 
+   "fields": { 
+    "subject": "프로그래밍언어론" }},{
+    "model": "subject_app.Subject",
+   "pk": 14, 
+   "fields": { 
+    "subject": "시스템프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 15, 
+   "fields": { 
+    "subject": "웹시스템설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 16, 
+   "fields": { 
+    "subject": "컴퓨터구조" }},{
+    "model": "subject_app.Subject",
+   "pk": 17, 
+   "fields": { 
+    "subject": "알고리즘" }},{
+    "model": "subject_app.Subject",
+   "pk": 18, 
+   "fields": { 
+    "subject": "데이터베이스설계와질의" }},{
+    "model": "subject_app.Subject",
+   "pk": 19, 
+   "fields": { 
+    "subject": "모바일소프트웨어" }},{
+    "model": "subject_app.Subject",
+   "pk": 20, 
+   "fields": { 
+    "subject": "소프트웨어공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 21, 
+   "fields": { 
+    "subject": "컴퓨터네트워크" }},{
+    "model": "subject_app.Subject",
+   "pk": 22, 
+   "fields": { 
+    "subject": "인공지능" }},{
+    "model": "subject_app.Subject",
+   "pk": 23, 
+   "fields": { 
+    "subject": "데이터베이스프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 24, 
+   "fields": { 
+    "subject": "임베디드시스템  " }},{
+    "model": "subject_app.Subject",
+   "pk": 25, 
+   "fields": { 
+    "subject": "컴파일러" }},{
+    "model": "subject_app.Subject",
+   "pk": 26, 
+   "fields": { 
+    "subject": "네트워크보안" }},{
+    "model": "subject_app.Subject",
+   "pk": 27, 
+   "fields": { 
+    "subject": "클라우드시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 28, 
+   "fields": { 
+    "subject": "영상정보처리" }},{
+    "model": "subject_app.Subject",
+   "pk": 29, 
+   "fields": { 
+    "subject": "시스템종합설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 30, 
+   "fields": { 
+    "subject": "컴퓨터특강" }},{
+    "model": "subject_app.Subject",
+   "pk": 31, 
+   "fields": { 
+    "subject": "통계학입문" }},{
+    "model": "subject_app.Subject",
+   "pk": 32, 
+   "fields": { 
+    "subject": "경영정보시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 33, 
+   "fields": { 
+    "subject": "인터넷기술융합" }},{
+    "model": "subject_app.Subject",
+   "pk": 34, 
+   "fields": { 
+    "subject": "컴퓨터시스템기초" }},{
+    "model": "subject_app.Subject",
+   "pk": 35, 
+   "fields": { 
+    "subject": "데이터마이닝및분석" }},{
+    "model": "subject_app.Subject",
+   "pk": 36, 
+   "fields": { 
+    "subject": "사용자인터페이스" }},{
+    "model": "subject_app.Subject",
+   "pk": 37, 
+   "fields": { 
+    "subject": "소프트웨어분석및설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 38, 
+   "fields": { 
+    "subject": "스토리지시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 39, 
+   "fields": { 
+    "subject": "빅데이터처리" }},{
+    "model": "subject_app.Subject",
+   "pk": 40, 
+   "fields": { 
+    "subject": "인터랙티브미디어" }},{
+    "model": "subject_app.Subject",
+   "pk": 41, 
+   "fields": { 
+    "subject": "소프트웨어융합특강" }},{
+    "model": "subject_app.Subject",
+   "pk": 42, 
+   "fields": { 
+    "subject": "바이오인포메틱스개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 43, 
+   "fields": { 
+    "subject": "시스템종합설계(캡스톤디자인)" }},{
+    "model": "subject_app.Subject",
+   "pk": 44, 
+   "fields": { 
+    "subject": "사물인터넷시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 45, 
+   "fields": { 
+    "subject": "수학개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 46, 
+   "fields": { 
+    "subject": "공학기초물리" }},{
+    "model": "subject_app.Subject",
+   "pk": 47, 
+   "fields": { 
+    "subject": "공학기초화학" }},{
+    "model": "subject_app.Subject",
+   "pk": 48, 
+   "fields": { 
+    "subject": "일반생명과학" }},{
+    "model": "subject_app.Subject",
+   "pk": 49, 
+   "fields": { 
+    "subject": "미적분학" }},{
+    "model": "subject_app.Subject",
+   "pk": 50, 
+   "fields": { 
+    "subject": "화공양론" }},{
+    "model": "subject_app.Subject",
+   "pk": 51, 
+   "fields": { 
+    "subject": "공학물리화학" }},{
+    "model": "subject_app.Subject",
+   "pk": 52, 
+   "fields": { 
+    "subject": "공학유기화학" }},{
+    "model": "subject_app.Subject",
+   "pk": 53, 
+   "fields": { 
+    "subject": "화공수학" }},{
+    "model": "subject_app.Subject",
+   "pk": 54, 
+   "fields": { 
+    "subject": "화공기초실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 55, 
+   "fields": { 
+    "subject": "화공공정실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 56, 
+   "fields": { 
+    "subject": "전달현상" }},{
+    "model": "subject_app.Subject",
+   "pk": 57, 
+   "fields": { 
+    "subject": "화공열역학" }},{
+    "model": "subject_app.Subject",
+   "pk": 58, 
+   "fields": { 
+    "subject": "반응공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 59, 
+   "fields": { 
+    "subject": "공정제어및설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 60, 
+   "fields": { 
+    "subject": "단위조작" }},{
+    "model": "subject_app.Subject",
+   "pk": 61, 
+   "fields": { 
+    "subject": "고분자공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 62, 
+   "fields": { 
+    "subject": "고분자물성" }},{
+    "model": "subject_app.Subject",
+   "pk": 63, 
+   "fields": { 
+    "subject": "재료화학공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 64, 
+   "fields": { 
+    "subject": "소자재료공정" }},{
+    "model": "subject_app.Subject",
+   "pk": 65, 
+   "fields": { 
+    "subject": "촉매공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 66, 
+   "fields": { 
+    "subject": "전자재료공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 67, 
+   "fields": { 
+    "subject": "첨단센서공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 68, 
+   "fields": { 
+    "subject": "스마트센서시스템공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 69, 
+   "fields": { 
+    "subject": "유연소자공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 70, 
+   "fields": { 
+    "subject": "에너지공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 71, 
+   "fields": { 
+    "subject": "전기화학공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 72, 
+   "fields": { 
+    "subject": "이차전지공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 73, 
+   "fields": { 
+    "subject": "환경공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 74, 
+   "fields": { 
+    "subject": "유전공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 75, 
+   "fields": { 
+    "subject": "유전체공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 76, 
+   "fields": { 
+    "subject": "생체재료공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 77, 
+   "fields": { 
+    "subject": "생물화학공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 78, 
+   "fields": { 
+    "subject": "생체유기합성공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 79, 
+   "fields": { 
+    "subject": "새포생명공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 80, 
+   "fields": { 
+    "subject": "분자생명공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 81, 
+   "fields": { 
+    "subject": "나노화학공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 82, 
+   "fields": { 
+    "subject": "나노소재공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 83, 
+   "fields": { 
+    "subject": "화공전산" }},{
+    "model": "subject_app.Subject",
+   "pk": 84, 
+   "fields": { 
+    "subject": "화공총론" }},{
+    "model": "subject_app.Subject",
+   "pk": 85, 
+   "fields": { 
+    "subject": "화공통계열역학" }},{
+    "model": "subject_app.Subject",
+   "pk": 86, 
+   "fields": { 
+    "subject": "기기분석화학및실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 87, 
+   "fields": { 
+    "subject": "계면 및 콜로이드" }},{
+    "model": "subject_app.Subject",
+   "pk": 88, 
+   "fields": { 
+    "subject": "화학공장설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 89, 
+   "fields": { 
+    "subject": "공학유기화학실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 90, 
+   "fields": { 
+    "subject": "화공생명창의설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 91, 
+   "fields": { 
+    "subject": "IT기술의 이해" }},{
+    "model": "subject_app.Subject",
+   "pk": 92, 
+   "fields": { 
+    "subject": "프로그래밍입문" }},{
+    "model": "subject_app.Subject",
+   "pk": 93, 
+   "fields": { 
+    "subject": "객체지향프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 94, 
+   "fields": { 
+    "subject": "웹프로그래밍기초" }},{
+    "model": "subject_app.Subject",
+   "pk": 95, 
+   "fields": { 
+    "subject": "데이터구조" }},{
+    "model": "subject_app.Subject",
+   "pk": 96, 
+   "fields": { 
+    "subject": "IT기기구조" }},{
+    "model": "subject_app.Subject",
+   "pk": 97, 
+   "fields": { 
+    "subject": "데이터베이스" }},{
+    "model": "subject_app.Subject",
+   "pk": 98, 
+   "fields": { 
+    "subject": "컴퓨터그래픽프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 99, 
+   "fields": { 
+    "subject": "알고리즘입문" }},{
+    "model": "subject_app.Subject",
+   "pk": 100, 
+   "fields": { 
+    "subject": "영상처리및응용" }},{
+    "model": "subject_app.Subject",
+   "pk": 101, 
+   "fields": { 
+    "subject": "UI/UX설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 102, 
+   "fields": { 
+    "subject": "IoT응용" }},{
+    "model": "subject_app.Subject",
+   "pk": 103, 
+   "fields": { 
+    "subject": "IT기술및산업동향" }},{
+    "model": "subject_app.Subject",
+   "pk": 104, 
+   "fields": { 
+    "subject": "데이터마이닝개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 105, 
+   "fields": { 
+    "subject": "스마트서비스" }},{
+    "model": "subject_app.Subject",
+   "pk": 106, 
+   "fields": { 
+    "subject": "지능형소프트웨어" }},{
+    "model": "subject_app.Subject",
+   "pk": 107, 
+   "fields": { 
+    "subject": "IT수학" }},{
+    "model": "subject_app.Subject",
+   "pk": 108, 
+   "fields": { 
+    "subject": "기초프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 109, 
+   "fields": { 
+    "subject": "C++프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 110, 
+   "fields": { 
+    "subject": "모바일프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 111, 
+   "fields": { 
+    "subject": "서버운영및보안" }},{
+    "model": "subject_app.Subject",
+   "pk": 112, 
+   "fields": { 
+    "subject": "웹프로그래밍응용" }},{
+    "model": "subject_app.Subject",
+   "pk": 113, 
+   "fields": { 
+    "subject": "IT소프트웨어공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 114, 
+   "fields": { 
+    "subject": "가상및증강현실응용" }},{
+    "model": "subject_app.Subject",
+   "pk": 115, 
+   "fields": { 
+    "subject": "네트워크" }},{
+    "model": "subject_app.Subject",
+   "pk": 116, 
+   "fields": { 
+    "subject": "운영체제원리" }},{
+    "model": "subject_app.Subject",
+   "pk": 117, 
+   "fields": { 
+    "subject": "센서프로그래밍" }},{
+    "model": "subject_app.Subject",
+   "pk": 118, 
+   "fields": { 
+    "subject": "HCI개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 119, 
+   "fields": { 
+    "subject": "데이터분석및활용" }},{
+    "model": "subject_app.Subject",
+   "pk": 120, 
+   "fields": { 
+    "subject": "컴퓨터비전" }},{
+    "model": "subject_app.Subject",
+   "pk": 121, 
+   "fields": { 
+    "subject": "클라우드컴퓨팅" }},{
+    "model": "subject_app.Subject",
+   "pk": 122, 
+   "fields": { 
+    "subject": "일반물리학" }},{
+    "model": "subject_app.Subject",
+   "pk": 123, 
+   "fields": { 
+    "subject": "일반물리실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 124, 
+   "fields": { 
+    "subject": "전자공학개론" }},{
+    "model": "subject_app.Subject",
+   "pk": 125, 
+   "fields": { 
+    "subject": "미분적분학" }},{
+    "model": "subject_app.Subject",
+   "pk": 126, 
+   "fields": { 
+    "subject": "회로이론" }},{
+    "model": "subject_app.Subject",
+   "pk": 127, 
+   "fields": { 
+    "subject": "회로이론실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 128, 
+   "fields": { 
+    "subject": "논리회로" }},{
+    "model": "subject_app.Subject",
+   "pk": 129, 
+   "fields": { 
+    "subject": "공업수학" }},{
+    "model": "subject_app.Subject",
+   "pk": 130, 
+   "fields": { 
+    "subject": "확률이론" }},{
+    "model": "subject_app.Subject",
+   "pk": 131, 
+   "fields": { 
+    "subject": "전자기학" }},{
+    "model": "subject_app.Subject",
+   "pk": 132, 
+   "fields": { 
+    "subject": "논리회로실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 133, 
+   "fields": { 
+    "subject": "물성전자공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 134, 
+   "fields": { 
+    "subject": "전자회로" }},{
+    "model": "subject_app.Subject",
+   "pk": 135, 
+   "fields": { 
+    "subject": "전자회로실험" }},{
+    "model": "subject_app.Subject",
+   "pk": 136, 
+   "fields": { 
+    "subject": "전자공학을 위한 화학" }},{
+    "model": "subject_app.Subject",
+   "pk": 137, 
+   "fields": { 
+    "subject": "전자장" }},{
+    "model": "subject_app.Subject",
+   "pk": 138, 
+   "fields": { 
+    "subject": "통신이론" }},{
+    "model": "subject_app.Subject",
+   "pk": 139, 
+   "fields": { 
+    "subject": "신호및시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 140, 
+   "fields": { 
+    "subject": "반도체소자공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 141, 
+   "fields": { 
+    "subject": "제어공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 142, 
+   "fields": { 
+    "subject": "컴퓨터공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 143, 
+   "fields": { 
+    "subject": "디지털데이터통신" }},{
+    "model": "subject_app.Subject",
+   "pk": 144, 
+   "fields": { 
+    "subject": "디지털신호처리" }},{
+    "model": "subject_app.Subject",
+   "pk": 145, 
+   "fields": { 
+    "subject": "집적회로소자" }},{
+    "model": "subject_app.Subject",
+   "pk": 146, 
+   "fields": { 
+    "subject": "아날로그집적회로" }},{
+    "model": "subject_app.Subject",
+   "pk": 147, 
+   "fields": { 
+    "subject": "VLSI 설계" }},{
+    "model": "subject_app.Subject",
+   "pk": 148, 
+   "fields": { 
+    "subject": "로봇공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 149, 
+   "fields": { 
+    "subject": "생체전자공학" }},{
+    "model": "subject_app.Subject",
+   "pk": 150, 
+   "fields": { 
+    "subject": "헬스케어시스템" }},{
+    "model": "subject_app.Subject",
+   "pk": 151, 
+   "fields": { 
+    "subject": "네트워크공학" }}]

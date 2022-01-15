@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book_app',
     'user_app',
+    'subject_app',
     'rest_framework',
     # 'week2_project.MUser',
     # 'week2_project.LikedBook'
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'week2_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 

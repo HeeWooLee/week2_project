@@ -21,8 +21,10 @@ from rest_framework import routers
 from user_app import views as user_views
 from book_app import views as book_views
 
+from subject_app import views as subject_views
 
 router = routers.DefaultRouter()
+router.register(r'subject', subject_views.SubjectViewSet, basename='subject')
 router.register(r'bookdetail', book_views.BookDetailViewSet, basename='bookdetail')
 router.register(r'likedbook', book_views.LikedBookViewSet, basename='likedbook')
 router.register(r'user', user_views.UserViewSet, basename='user')
