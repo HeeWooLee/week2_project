@@ -5,16 +5,24 @@ from django.http import JsonResponse
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from book_app.models import LikedBook, BookDetail
-from user_app.models import User
+from accounts.models import User
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import filters
 from .serializer import LikedBookSerializer, BookDetailSerializer
+from rest_framework.authtoken.models import Token
+
+
+def checkToken(request):
+    if request.method == 'POST':
+        token_string =request.headers['Key']
+        usrid = Token.objects.get(key=token_string).user_id
+        
 
 # Create your views here.
 class BookDetailViewSet(ModelViewSet):
     queryset= BookDetail.objects.all()
     serializer_class = BookDetailSerializer
-    search_fields = ['user__userName']
+    search_fields = ['user__username']
 
 class LikedBookViewSet(ModelViewSet):
     queryset= LikedBook.objects.all()
@@ -22,13 +30,12 @@ class LikedBookViewSet(ModelViewSet):
 
 def LikedBookList(request):
     if request.method == 'POST':
-        dictQuery = loads(request.body.decode('utf-8'))
+        token_string =request.headers['Key']
+        usrid = Token.objects.get(key=token_string).user_id
         
-        print(dictQuery)
-        usr = dictQuery['userName']
-        print(usr)
+        print(usrid)
         list = []
-        response = LikedBook.objects.filter(user__userName__exact=usr)
+        response = LikedBook.objects.filter(user__id__exact=usrid)
     
         for obj in response:
             dict = {}
@@ -44,12 +51,13 @@ def LikedBookList(request):
 def deleteLikedBook(request):
     if request.method == 'POST':
         dictQuery = loads(request.body.decode('utf-8'))
-        print(dictQuery)
-        usr = dictQuery['userName']
+        token_string =request.headers['Key']
+        usrid = Token.objects.get(key=token_string).user_id
+        
         title = dictQuery['title']
-        print(usr)
+        print(usrid)
         print(title)
-        model = LikedBook.objects.filter(user__userName__exact=usr).filter(book_detail__title__exact=title)
+        model = LikedBook.objects.filter(user__id__exact=usrid).filter(book_detail__title__exact=title)
         print(model)
         model.delete()
         if not model:
@@ -60,17 +68,19 @@ def deleteLikedBook(request):
 def addLikedBook(request):
     if request.method == 'POST':
         dictQuery = loads(request.body.decode('utf-8'))
-        print(dictQuery)
-        usr = dictQuery['userName']
+        token_string =request.headers['Key']
+        usrid = Token.objects.get(key=token_string).user_id
+        # print(dictQuery)
+        # usr = dictQuery['username']
+        # print(usr)
         title = dictQuery['title']
         image = dictQuery['image'] 
         author = dictQuery['author'] 
         publisher = dictQuery['publisher'] 
         pubdate = dictQuery['pubdate'] 
-        print(usr)
         print(title)
         # if not exist, add
-        user = User.objects.get(userName=usr)
+        user = User.objects.get(id__exact=usrid)
         print("user")
         print(user)
         if not LikedBook.objects.filter(
@@ -100,3 +110,5 @@ def addLikedBook(request):
         print(likedBook)
         return JsonResponse(data={"add success":"ok"}, safe=False)
 # liked list handled
+
+

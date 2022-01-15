@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import LikedBook,BookDetail
-from user_app.serializer import UserSerializer
+from accounts.serializer import UserSerializer
 
 class BookDetailSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,6 +1,6 @@
 from ast import mod
 from django.db import models
-from user_app.models import User
+from accounts.models import User
 
 # Create your models here.
 
@@ -19,7 +19,7 @@ class LikedBook(models.Model):
     book_detail = models.ForeignKey(BookDetail, on_delete=models.CASCADE)
     # what to fill in 
     def __str__(self):
-        return self.user.userName + '/' + self.book_detail.title
+        return self.user.username + '/' + self.book_detail.title
 
     @property
     def user_name(self):

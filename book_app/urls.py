@@ -11,5 +11,6 @@ urlpatterns = [
     path('', include('rest_framework.urls', namespace='rest_framework_category')),
     path('LikedBookList/', views.LikedBookList),
     path('deleteLikedBook/', views.deleteLikedBook),
-    path('addLikedBook/', views.addLikedBook)
+    path('addLikedBook/', views.addLikedBook),
+    path('checkToken/', views.checkToken)
 ]

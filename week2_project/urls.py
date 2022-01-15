@@ -18,7 +18,7 @@ from django.urls import path, include
 import book_app
 from rest_framework import routers
 # user made views 
-from user_app import views as user_views
+# from user_app import views as user_views
 from book_app import views as book_views
 
 from subject_app import views as subject_views
@@ -27,7 +27,7 @@ router = routers.DefaultRouter()
 router.register(r'subject', subject_views.SubjectViewSet, basename='subject')
 router.register(r'bookdetail', book_views.BookDetailViewSet, basename='bookdetail')
 router.register(r'likedbook', book_views.LikedBookViewSet, basename='likedbook')
-router.register(r'user', user_views.UserViewSet, basename='user')
+# router.register(r'user', user_views.UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('subject/', include('subject_app.urls')),
     path('book/', include('book_app.urls')),
-    path('user/', include('user_app.urls')),
+    # path('user/', include('user_app.urls')),
     path('', include(router.urls)),
 ]

@@ -45,9 +45,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_framework.authtoken',
+    'allauth.socialaccount',
     # User app
     'book_app',
-    'user_app',
+    # 'user_app',
     'subject_app',
     'accounts',
 ]
