@@ -23,16 +23,17 @@ from book_app import views as book_views
 from subjects import views as subject_views
 
 router = routers.DefaultRouter()
-# router.register(r'subjects', subject_views.SubjectViewSet, basename='subject')
+router.register(r'subjects', subject_views.SubjectViewSet, basename='subject')
 router.register(r'bookdetail', book_views.BookDetailViewSet, basename='bookdetail')
 router.register(r'likedbook', book_views.LikedBookViewSet, basename='likedbook')
 
 urlpatterns = [
+    # path('rest-auth/password/reset/', include('rest_auth')),
     path('admin/', admin.site.urls),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('accounts/', include('allauth.urls')),
-    # path('subjects/', include('subjects.urls')),
+    path('subjects/', include('subjects.urls')),
     path('book/', include('book_app.urls')),
     path('', include(router.urls)),
 ]

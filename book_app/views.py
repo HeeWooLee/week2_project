@@ -28,7 +28,8 @@ class LikedBookViewSet(ModelViewSet):
     serializer_class = LikedBookSerializer
 
 def LikedBookList(request):
-    if request.method == 'POST':
+    # get list
+    if request.method == 'GET':
         token_string =request.headers['Key']
         usrid = Token.objects.get(key=token_string).user_id
         
@@ -46,9 +47,8 @@ def LikedBookList(request):
             list.append(dict)
         return JsonResponse(list, safe=False)
 
-# .filter(book_detail__title__exact=title).first()
-def deleteLikedBook(request):
-    if request.method == 'POST':
+    # delete
+    if request.method == 'DELETE':
         dictQuery = loads(request.body.decode('utf-8'))
         token_string =request.headers['Key']
         usrid = Token.objects.get(key=token_string).user_id
@@ -64,7 +64,7 @@ def deleteLikedBook(request):
         else: 
             return JsonResponse(data={"delete fail":"not ok"}, safe=False)
 
-def addLikedBook(request):
+    # add
     if request.method == 'POST':
         dictQuery = loads(request.body.decode('utf-8'))
         token_string =request.headers['Key']
@@ -108,6 +108,8 @@ def addLikedBook(request):
         print("likedBook")
         print(likedBook)
         return JsonResponse(data={"add success":"ok"}, safe=False)
+# .filter(book_detail__title__exact=title).first()
+
 # liked list handled
 
 
