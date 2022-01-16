@@ -7,6 +7,10 @@ class BookDetailSerializer(serializers.ModelSerializer):
         model = BookDetail
         fields = '__all__'
 
+    def create(self, validated_data):
+        print("BookDetailSerializer Called")
+        return BookDetail.objects.create(**validated_data)
+
 class LikedBookSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     book_detail = BookDetailSerializer()

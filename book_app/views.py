@@ -1,4 +1,3 @@
-import imp
 from json import loads 
 from urllib import response
 from django.http import JsonResponse

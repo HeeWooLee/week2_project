@@ -48,8 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # User app
     'book_app',
-    # 'user_app',
-    'subject_app',
+    'subjects',
     'accounts',
 ]
 
@@ -144,7 +143,8 @@ SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : (
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAdminUser',
+        # 'rest_framework.permissions.IsAuthenticated',
     ),
     # 로그인 후 token으로 활동 인증
     'DEFAULT_AUTHENTICATION_CLASSES': [
