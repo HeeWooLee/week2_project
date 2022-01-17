@@ -1,3 +1,4 @@
+from urllib import response
 from django.shortcuts import render
 from json import loads
 from django.http import JsonResponse
@@ -11,6 +12,22 @@ from .models import *
 class StreamViewSet(ModelViewSet):
     queryset = Stream.objects.all()
     serializer_class = StreamSerializer
+
+def onlyLive(request):
+    if request.method == 'GET':
+        streamList = Stream.objects.filter(status__exact='LI')
+        responseList =[]
+        for obj in streamList:
+            dict = {}
+            dict['id'] = obj.id
+            dict['title'] = obj.title
+            dict['host'] = obj.host.username
+            dict['startTime'] = obj.startTime
+            dict['endTime'] = obj.endTime
+            dict['status'] = obj.status
+            responseList.append(dict)
+        return JsonResponse(responseList, safe = False)
+
 
 def myStream(request):
     # request header

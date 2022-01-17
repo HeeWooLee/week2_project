@@ -22,9 +22,10 @@ urlpatterns = [
     path('comment/vote/', views.voteComment),  
     path('comment/solved/<int:pk>', views.solvedComment),
 
-    # liked subject
+    # subject
+    # liked 
     path('liked/', views.likedSubject),
-    
     # search
     path('search/', views.searchSubject),
+    path('recent/', views.recentPost),
 ]

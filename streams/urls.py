@@ -10,5 +10,5 @@ urlpatterns = [
     path('liked/', views.likedStream),
     path('my/', views.myStream),
     path('status/', views.changeStatus),
-
+    path('live/', views.onlyLive),
 ]

@@ -27,6 +27,41 @@ class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
+def recentPost(request):
+    # get user id from request header
+    token_string =request.headers['Key']
+    userid = Token.objects.get(key=token_string).user_id
+    if request.method == 'GET':
+        # get liked subject name list 
+        likedSubjectList = LikedSubject.objects.filter(user__id__exact=userid)
+
+        subjectList =[]
+        for likedsubject in likedSubjectList:
+            subjectList.append(likedsubject.subject.subject)
+
+        recentPostList = []
+        for subject in subjectList:
+            dict={}
+            dict['subject']=subject
+            # most recent post
+            obj = Post.objects.filter(subject__subject__exact=subject).order_by('createdAt').reverse()
+            if obj: 
+                obj = obj[0]
+                dict['id'] = obj.id
+                dict['author'] = obj.author.username
+                dict['title'] = obj.title
+                dict['content'] = obj.content
+                dict['voteCount'] = obj.voteCount
+                dict['commentCount'] = obj.commentCount
+                dict['solved'] = obj.solved
+                dict['createdAt'] = obj.createdAt
+            else:
+                dict['id'] = -1
+
+            recentPostList.append(dict)
+        return JsonResponse(recentPostList, safe=False)
+
+
 def searchSubject(request):
     if request.method == 'POST':
         dictQuery = loads(request.body.decode('utf-8'))
@@ -39,11 +74,11 @@ def searchSubject(request):
     
 # Subjects
 def likedSubject(request):
+    # get user id from request header
+    token_string =request.headers['Key']
+    userid = Token.objects.get(key=token_string).user_id
     # add
     if request.method == 'POST':
-        # get user id from request header
-        token_string =request.headers['Key']
-        userid = Token.objects.get(key=token_string).user_id
 
         dictQuery = loads(request.body.decode('utf-8'))
         subject = dictQuery['subject']
@@ -62,9 +97,6 @@ def likedSubject(request):
     
     # delete
     if request.method == 'DELETE':
-        # get user id from request header
-        token_string =request.headers['Key']
-        userid = Token.objects.get(key=token_string).user_id
 
         dictQuery = loads(request.body.decode('utf-8'))
         subject = dictQuery['subject']
