@@ -96,7 +96,7 @@ ASGI_APPLICATION = 'week2_project.asgi.application'
 
 
 # chat
-CHANNEL_LAYER = {
+CHANNEL_LAYERS = {
     "default":{
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {

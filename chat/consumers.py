@@ -1,10 +1,10 @@
-# import json 
-# from channels.generic.websocket import AsyncWebsocketConsumer
+import json 
+from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.db import database_sync_to_async
 
-# from channels.db import database_sync_to_async
-
-# class PersonalChatConsumer(AsyncWebsocketConsumer):
-#     async def connet(self):
+class PersonalChatConsumer(AsyncWebsocketConsumer):
+    async def connet(self):
+        pass
 #         # get id of current user
 #         my_id = self.scope['user'].id
 #         # url route == 'ws/<int:id>' get id from url 
