@@ -17,7 +17,6 @@ class Subject(models.Model):
 class Post(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    bookDetail = models.ForeignKey(BookDetail, on_delete=models.CASCADE)
     createdAt= models.DateTimeField(auto_now=True)
     title = models.TextField()
     content = models.TextField()
@@ -31,7 +30,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    createdAt = models.DateTimeField(auto_now=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     voteCount = models.IntegerField(default=0)
     solved = models.BooleanField(default=False)

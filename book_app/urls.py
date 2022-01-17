@@ -8,7 +8,9 @@ app_name = 'book_app'
 
 urlpatterns = [
     # path('', include(router.urls)),
-    path('', include('rest_framework.urls', namespace='rest_framework_category')),
+    # path('', include('rest_framework.urls', namespace='rest_framework_category')),
     path('liked/', views.LikedBookList),
+    path('check/', views.isBookLiked),
+    path('', views.addBook),
     path('checkToken/', views.checkToken)
 ]

@@ -44,7 +44,7 @@ def recentPost(request):
             dict={}
             dict['subject']=subject
             # most recent post
-            obj = Post.objects.filter(subject__subject__exact=subject).order_by('createdAt').reverse()
+            obj = Post.objects.filter(subject__subject__exact=subject).order_by('id').reverse()
             if obj: 
                 obj = obj[0]
                 dict['id'] = obj.id
@@ -63,14 +63,28 @@ def recentPost(request):
 
 
 def searchSubject(request):
+    # get user id from request header
+    token_string =request.headers['Key']
+    userid = Token.objects.get(key=token_string).user_id
     if request.method == 'POST':
         dictQuery = loads(request.body.decode('utf-8'))
         subject = dictQuery['subject']
 
         response = Subject.objects.filter(subject__startswith=subject)
-        response = list(response.values_list('subject', flat=True))
-    
-        return JsonResponse(response, safe=False)
+        subjectList = list(response.values_list('subject', flat=True))
+
+        responseList = []
+        for subject in subjectList:
+            dict = {}
+            dict['subject'] = subject
+            if LikedSubject.objects.filter(user__id__exact=userid).filter(subject__subject__exact=subject):
+                isScrapped = True
+            else:
+                isScrapped = False
+            dict['isScrapped'] = isScrapped
+            responseList.append(dict)
+            
+        return JsonResponse(responseList, safe=False)
     
 # Subjects
 def likedSubject(request):
@@ -79,7 +93,7 @@ def likedSubject(request):
     userid = Token.objects.get(key=token_string).user_id
     # add
     if request.method == 'POST':
-
+        print(request.body)
         dictQuery = loads(request.body.decode('utf-8'))
         subject = dictQuery['subject']
 
@@ -130,7 +144,7 @@ def getPostList(request):
         subject = dictQuery['subject']
         list = []
         # get post list
-        postList = Post.objects.filter(subject__subject__exact=subject)
+        postList = Post.objects.filter(subject__subject__exact=subject).order_by('id').reverse()
 
         # calculate upvote and downvote
         print(postList)
@@ -169,9 +183,7 @@ def getNdelPost(request, pk):
         
         # change some attributes
         response['subject'] = post.subject.subject
-        response['author'] = post.author    .username
-        response['bookTitle'] = post.bookDetail.title
-        del response['bookDetail']
+        response['author'] = post.author.username
 
         # check if user liked or scrapped this post 
         isliked = False
@@ -208,6 +220,7 @@ def getNdelPost(request, pk):
             return JsonResponse("current user is not an author", safe=False)
 
 def addPost(request):
+    print("request",request.body)
     if request.method == 'POST':
         # get response header
         token_string =request.headers['Key']
@@ -219,15 +232,13 @@ def addPost(request):
         subject = dictQuery['subject']
         title = dictQuery['title'] 
         content = dictQuery['content'] 
-        bookTitle = dictQuery['bookTitle']
 
         # get author, book Detail, subject
         author = User.objects.get(id__exact=usrid)
-        bookDetail = BookDetail.objects.get(title__exact=bookTitle)
         subjectObj = Subject.objects.get(subject__exact=subject)
 
         # create instance
-        newPost = Post.objects.create(subject=subjectObj, author=author, bookDetail=bookDetail, \
+        newPost = Post.objects.create(subject=subjectObj, author=author,  \
         title=title, content=content)
 
         if newPost: 
@@ -337,7 +348,7 @@ def searchPost(request):
         
         uniqueid = first_list + list(set(second_list) - set(first_list))
 
-        postList = Post.objects.filter(id__in=uniqueid)
+        postList = Post.objects.filter(id__in=uniqueid).order_by('id').reverse()
 
         response = []
         for obj in postList:
@@ -367,7 +378,7 @@ def getCommentList(request):
         postid = dictQuery['postId']
         list = []
         # get comment list
-        commentList = Comment.objects.filter(post__id__exact=postid)
+        commentList = Comment.objects.filter(post__id__exact=postid).order_by('id').reverse()
         print(commentList)
         for obj in commentList:
             dict = {}

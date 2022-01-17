@@ -21,6 +21,7 @@ from rest_framework import routers
 # from user_app import views as user_views
 from book_app import views as book_views
 from subjects import views as subject_views
+# from chat.views import index, chatPage
 
 router = routers.DefaultRouter()
 router.register(r'subjects', subject_views.SubjectViewSet, basename='subject')
@@ -36,5 +37,10 @@ urlpatterns = [
     path('subjects/', include('subjects.urls')),
     path('streams/', include('streams.urls')),
     path('book/', include('book_app.urls')),
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
+
+    # chat
+    # path('', index, name='home'),
+    # path('chat/', chatPage, name='chat')
+
 ]

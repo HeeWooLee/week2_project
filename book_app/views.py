@@ -1,4 +1,5 @@
-from json import loads 
+
+from json import loads
 from urllib import response
 from django.http import JsonResponse
 from django.http.response import HttpResponse
@@ -26,6 +27,53 @@ class BookDetailViewSet(ModelViewSet):
 class LikedBookViewSet(ModelViewSet):
     queryset= LikedBook.objects.all()
     serializer_class = LikedBookSerializer
+
+def addBook(request):
+    if request.method == 'POST':
+        dictQuery = loads(request.body.decode('utf-8'))
+        title = dictQuery['title']
+        image = dictQuery['image'] 
+        author = dictQuery['author'] 
+        publisher = dictQuery['publisher'] 
+        pubdate = dictQuery['pubdate'] 
+        if not BookDetail.objects.filter(
+            title=title
+        ).filter(
+            image=image
+        ).filter(
+            author=author
+        ).filter(
+            publisher=publisher
+        ).filter(
+            pubdate=pubdate
+        ).exists():
+            BookDetail.objects.create(title=title,
+                image=image, author=author,
+                publisher=publisher,
+                pubdate=pubdate)
+            return JsonResponse("book created", safe=False)
+        else:
+            return JsonResponse("book already exists", safe=False)
+        
+def isBookLiked(request):
+    if request.method == 'POST':
+        token_string =request.headers['Key']
+        usrid = Token.objects.get(key=token_string).user_id
+
+        dictQuery = loads(request.body.decode('utf-8'))
+        title = dictQuery['title']
+
+        dict = {}
+        dict['isLiked'] = True
+        if LikedBook.objects.filter(user__id__exact=usrid).filter(book_detail__title__exact=title):
+            print(dict)
+            dict['isLiked'] = True
+            return JsonResponse(dict, safe=False)
+        else:
+            print(dict)
+            dict['isLiked'] = False
+            return JsonResponse(dict, safe=False) 
+
 
 def LikedBookList(request):
     # get list
@@ -82,17 +130,19 @@ def LikedBookList(request):
         user = User.objects.get(id__exact=usrid)
         print("user")
         print(user)
-        if not LikedBook.objects.filter(
-            book_detail__title=title
+
+        requestBookDetail = BookDetail.objects.filter(
+            title=title
         ).filter(
-            book_detail__image=image
+            image=image
         ).filter(
-            book_detail__author=author
+            author=author
         ).filter(
-            book_detail__publisher=publisher
+            publisher=publisher
         ).filter(
-            book_detail__pubdate=pubdate
-        ).exists():
+            pubdate=pubdate
+        )
+        if not requestBookDetail:
             bookDetail = BookDetail.objects.create(title=title,
                 image=image, author=author,
                 publisher=publisher,
@@ -102,12 +152,14 @@ def LikedBookList(request):
                 image=image, author=author,
                 publisher=publisher,
                 pubdate=pubdate)
+            if LikedBook.objects.filter(book_detail__id__exact=bookDetail.id).filter(user__id__exact=usrid):
+                return JsonResponse("already liked", safe=False)
         print("bookdetail")
         print(bookDetail)
         likedBook = LikedBook.objects.create(user=user,book_detail=bookDetail)
         print("likedBook")
         print(likedBook)
-        return JsonResponse(data={"add success":"ok"}, safe=False)
+        return JsonResponse(data={"liked book add success":"ok"}, safe=False)
 # .filter(book_detail__title__exact=title).first()
 
 # liked list handled

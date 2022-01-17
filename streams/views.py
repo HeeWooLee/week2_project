@@ -39,7 +39,7 @@ def myStream(request):
         totalDict ={}
         statList = ['LI', 'UP', 'TE']
         for stat in statList: 
-            streamList = mystream.filter(status__exact=stat)
+            streamList = mystream.filter(status__exact=stat).order_by('id').reverse()
             tempList =[]
             for obj in streamList:
                 dict = {}
@@ -119,7 +119,7 @@ def likedStream(request):
     # liked stream list 
     if request.method == 'GET':
         list = []
-        stream = isLikedStream.objects.filter(user__id__exact=usrid)
+        stream = isLikedStream.objects.filter(user__id__exact=usrid).order_by('id').reverse()
         for obj in stream:
             dict = {}
             dict['id'] = obj.id
