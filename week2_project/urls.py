@@ -34,6 +34,7 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('accounts/', include('allauth.urls')),
     path('subjects/', include('subjects.urls')),
+    path('streams/', include('streams.urls')),
     path('book/', include('book_app.urls')),
     path('', include(router.urls)),
 ]

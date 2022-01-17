@@ -1,4 +1,5 @@
 from distutils import core
+from itertools import chain
 from django.core.exceptions import SuspiciousOperation
 from json import loads, dumps
 from re import S
@@ -26,9 +27,16 @@ class CommentViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
 
-# def findSubject(request):
-    
+def searchSubject(request):
+    if request.method == 'POST':
+        dictQuery = loads(request.body.decode('utf-8'))
+        subject = dictQuery['subject']
 
+        response = Subject.objects.filter(subject__startswith=subject)
+        response = list(response.values_list('subject', flat=True))
+    
+        return JsonResponse(response, safe=False)
+    
 # Subjects
 def likedSubject(request):
     # add
@@ -139,10 +147,10 @@ def getNdelPost(request, pk):
             isliked =True
         response['isLiked'] = isliked
 
-        isscrapped = False
-        if isScrapped.objects.filter(post__id__exact=postid).filter(user__id__exact=userid):
-            isscrapped =True        
-        response['isScrapped'] = isscrapped
+        # isscrapped = False
+        # if isScrapped.objects.filter(post__id__exact=postid).filter(user__id__exact=userid):
+        #     isscrapped =True        
+        # response['isScrapped'] = isscrapped
 
         # return post content
         return JsonResponse(response, safe=False)
@@ -282,8 +290,43 @@ def votePost(request):
         
         return JsonResponse("vote done", safe=False)
 
-# def findPost(request):
+def searchPost(request):
+    if request.method == 'POST':
+        dictQuery = loads(request.body.decode('utf-8'))
+        subject = dictQuery['subject']
+        query = dictQuery['query']
 
+
+        # search post within selected post
+        posts = Post.objects.filter(subject__subject__exact=subject)
+        print(posts)
+        first_list = list(posts.filter(title__icontains=query).values_list('id', flat=True))
+        second_list = list(posts.filter(content__icontains=query).values_list('id', flat=True))
+        
+        uniqueid = first_list + list(set(second_list) - set(first_list))
+
+        postList = Post.objects.filter(id__in=uniqueid)
+
+        response = []
+        for obj in postList:
+            dict = {}
+            id = obj.id
+            upVote = PostVote.objects.filter(post__id__exact=id).filter(vote=True).count()
+            downVote = PostVote.objects.filter(post__id__exact=id).filter(vote=False).count()
+            obj.voteCount = upVote - downVote
+            obj.save()
+            dict['id'] = obj.id
+            dict['author'] = obj.author.username
+            dict['title'] = obj.title
+            dict['content'] = obj.content
+            dict['voteCount'] = obj.voteCount
+            dict['commentCount'] = obj.commentCount
+            dict['solved'] = obj.solved
+            dict['createdAt'] = obj.createdAt
+            
+            response.append(dict)
+        return JsonResponse(response, safe = False)
+    
 # Comment 
 def getCommentList(request):
     if request.method == 'POST':

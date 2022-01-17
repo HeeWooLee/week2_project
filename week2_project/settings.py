@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # User app
     'book_app',
     'subjects',
+    'streams',
     'accounts',
 ]
 

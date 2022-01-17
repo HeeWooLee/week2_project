@@ -13,7 +13,7 @@ urlpatterns = [
     path('post/solved/<int:pk>', views.solvedPost),
     path('post/vote/', views.votePost),
     path('post/liked/<int:pk>', views.likePost),
-    # path('post/search/', views.searchPost),
+    path('post/search/', views.searchPost),
 
     # comment
     path('comment/list/', views.getCommentList),
@@ -24,4 +24,7 @@ urlpatterns = [
 
     # liked subject
     path('liked/', views.likedSubject),
+    
+    # search
+    path('search/', views.searchSubject),
 ]
